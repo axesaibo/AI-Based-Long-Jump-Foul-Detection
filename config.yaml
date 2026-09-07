@@ -1,0 +1,66 @@
+# ============================================================
+# Long Jump Foul Detection System — Configuration
+# ============================================================
+
+# --- Model Settings ---
+model:
+  # Path to your trained YOLOv8-seg .pt file
+  # Place your trained model in the models/ folder and update this path
+  weights: "models/shoe_seg.pt"
+  confidence_threshold: 0.5
+  iou_threshold: 0.45
+  device: "auto"           # "auto", "cpu", "0" (GPU index)
+  imgsz: 640               # Inference image size
+
+# --- Camera Settings ---
+camera:
+  source: 0                # 0 = default webcam, or path to video file e.g. "test_video.mp4"
+  width: 1280
+  height: 720
+  fps: 60                  # Requested FPS (actual depends on camera hardware)
+
+# --- Foul Line Settings ---
+foul_line:
+  # The foul line is defined as two points (x1, y1) and (x2, y2) in pixel coordinates.
+  # Use the calibration tool to set these interactively:
+  #   python src/calibration.py
+  #
+  # If not calibrated, the system will prompt you to draw the line on first run.
+  x1: 0
+  y1: 400
+  x2: 1280
+  y2: 400
+
+  # Tolerance margin in pixels to avoid false positives from bounding box overshoot.
+  # The shoe must cross the line by at least this many pixels to be called foul.
+  tolerance_px: 5
+
+  # Line color for visualization (BGR)
+  color: [0, 0, 255]       # Red
+  thickness: 3
+
+# --- Detection Logic ---
+detection:
+  # Minimum number of consecutive frames the shoe must overlap the line
+  # to confirm a foul (reduces single-frame glitches)
+  min_consecutive_frames: 2
+
+  # Maximum frames to keep in the tracking buffer
+  buffer_size: 30
+
+  # Shoe class name as defined in your YOLO training dataset
+  class_name: "shoe"
+
+# --- Output Settings ---
+output:
+  save_video: true
+  output_dir: "output"
+  show_display: true       # Show OpenCV window with live feed (set false for headless)
+
+  # Replay: number of frames to save before and after a foul event
+  replay_buffer_frames: 60
+
+# --- Dashboard Settings ---
+dashboard:
+  enabled: false           # Set true to launch Streamlit dashboard
+  port: 8501

@@ -1,0 +1,74 @@
+# ===========================
+# Python
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+pip-log.txt
+
+# ===========================
+# Virtual Environments
+# ===========================
+venv/
+env/
+.venv/
+ENV/
+
+# ===========================
+# Environment & Secrets
+# ===========================
+.env
+.env.*
+!.env.example
+
+# ===========================
+# IDE / Editor
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# ===========================
+# OS Files
+# ===========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# ===========================
+# Trained Models (large files)
+# ===========================
+models/*.pt
+models/*.onnx
+models/*.torchscript
+
+# ===========================
+# Output Videos & Screenshots
+# ===========================
+output/*.mp4
+output/*.avi
+output/*.jpg
+output/*.png
+
+# ===========================
+# Training Artifacts
+# ===========================
+runs/
+dataset/
+
+# ===========================
+# Jupyter / Misc
+# ===========================
+.ipynb_checkpoints/
+*.log
