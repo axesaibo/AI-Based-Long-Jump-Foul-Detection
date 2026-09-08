@@ -40,6 +40,26 @@ long-jump-foul-detection/
 
 ## Quick Start
 
+
+
+## 📥 Model Weights Setup (Important)
+
+Due to GitHub's file size limits, the trained YOLOv8 model weights (`.pt` file) are too large to be included directly in the code repository. To make sure the project runs seamlessly, I have uploaded the model to the **Releases** section. 
+
+To set up the model on your local machine, please follow these steps:
+
+1. Go to the [Releases](../../releases) tab on the right side of this GitHub repository.
+2. Download the model weight file (e.g., `shoe-seg.pt`) from the latest release assets.
+3. Place the downloaded `.pt` file inside the `models/` directory of your cloned repository.
+
+Your folder structure should look exactly like this before you run the code:
+
+```text
+AI-Based-Long-Jump-Foul-Detection/
+├── models/
+│   └── shoe-seg.pt    <-- Place the downloaded file here!
+
+
 ### 1. Install Dependencies
 
 ```bash
